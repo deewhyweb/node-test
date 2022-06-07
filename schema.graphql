@@ -1,0 +1,391 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Card {
+  cardImage: String
+  cardType: EnumCardCardType
+  createdAt: DateTime!
+  equippableModifier: JSONObject
+  equippedImage: String
+  flavorText: String
+  id: String!
+  name: String
+  nonEquippableModifier: JSONObject
+  rarity: EnumCardRarity
+  updatedAt: DateTime!
+}
+
+input CardCreateInput {
+  cardImage: String
+  cardType: EnumCardCardType
+  equippableModifier: JSONObject
+  equippedImage: String
+  flavorText: String
+  name: String
+  nonEquippableModifier: JSONObject
+  rarity: EnumCardRarity
+}
+
+input CardOrderByInput {
+  cardImage: SortOrder
+  cardType: SortOrder
+  createdAt: SortOrder
+  equippableModifier: SortOrder
+  equippedImage: SortOrder
+  flavorText: SortOrder
+  id: SortOrder
+  name: SortOrder
+  nonEquippableModifier: SortOrder
+  rarity: SortOrder
+  updatedAt: SortOrder
+}
+
+input CardUpdateInput {
+  cardImage: String
+  cardType: EnumCardCardType
+  equippableModifier: JSONObject
+  equippedImage: String
+  flavorText: String
+  name: String
+  nonEquippableModifier: JSONObject
+  rarity: EnumCardRarity
+}
+
+input CardWhereInput {
+  cardType: EnumCardCardType
+  equippableModifier: JsonFilter
+  id: StringFilter
+  name: StringNullableFilter
+  nonEquippableModifier: JsonFilter
+  rarity: EnumCardRarity
+}
+
+input CardWhereUniqueInput {
+  id: String!
+}
+
+input Credentials {
+  password: String!
+  username: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+enum EnumCardCardType {
+  Hero
+  Monster
+}
+
+enum EnumCardRarity {
+  Common
+  Legendary
+  Rare
+  Uncommon
+}
+
+input IntNullableFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: Int
+  notIn: [Int!]
+}
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+input JsonFilter {
+  equals: JSONObject
+  not: JSONObject
+}
+
+type MetaQueryPayload {
+  count: Float!
+}
+
+type Mutation {
+  createCard(data: CardCreateInput!): Card!
+  createPlayer(data: PlayerCreateInput!): Player!
+  createPlayerCard(data: PlayerCardCreateInput!): PlayerCard!
+  createSpecialAbility(data: SpecialAbilityCreateInput!): SpecialAbility!
+  createUser(data: UserCreateInput!): User!
+  deleteCard(where: CardWhereUniqueInput!): Card!
+  deletePlayer(where: PlayerWhereUniqueInput!): Player!
+  deletePlayerCard(where: PlayerCardWhereUniqueInput!): PlayerCard!
+  deleteSpecialAbility(where: SpecialAbilityWhereUniqueInput!): SpecialAbility!
+  deleteUser(where: UserWhereUniqueInput!): User!
+  login(credentials: Credentials!): UserInfo!
+  updateCard(data: CardUpdateInput!, where: CardWhereUniqueInput!): Card!
+  updatePlayer(data: PlayerUpdateInput!, where: PlayerWhereUniqueInput!): Player!
+  updatePlayerCard(data: PlayerCardUpdateInput!, where: PlayerCardWhereUniqueInput!): PlayerCard!
+  updateSpecialAbility(data: SpecialAbilityUpdateInput!, where: SpecialAbilityWhereUniqueInput!): SpecialAbility!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User!
+}
+
+type Player {
+  bothFeetEquipmentSlot: JSONObject
+  bothHandsEquipmentSlot: JSONObject
+  createdAt: DateTime!
+  headEquipmentSlot: JSONObject
+  id: String!
+  leftFootEquipmentSlot: JSONObject
+  leftHandEquipmentSlot: JSONObject
+  rightFootEquipmentSlot: JSONObject
+  rightHandEquipmentSlot: JSONObject
+  updatedAt: DateTime!
+}
+
+type PlayerCard {
+  cardId: Float
+  createdAt: DateTime!
+  dungeonUsesRemaining: Float
+  id: String!
+  name: String
+  updatedAt: DateTime!
+}
+
+input PlayerCardCreateInput {
+  cardId: Float
+  dungeonUsesRemaining: Float
+  name: String
+}
+
+input PlayerCardOrderByInput {
+  cardId: SortOrder
+  createdAt: SortOrder
+  dungeonUsesRemaining: SortOrder
+  id: SortOrder
+  name: SortOrder
+  updatedAt: SortOrder
+}
+
+input PlayerCardUpdateInput {
+  cardId: Float
+  dungeonUsesRemaining: Float
+  name: String
+}
+
+input PlayerCardWhereInput {
+  dungeonUsesRemaining: IntNullableFilter
+  id: StringFilter
+  name: StringNullableFilter
+}
+
+input PlayerCardWhereUniqueInput {
+  id: String!
+}
+
+input PlayerCreateInput {
+  bothFeetEquipmentSlot: JSONObject
+  bothHandsEquipmentSlot: JSONObject
+  headEquipmentSlot: JSONObject
+  leftFootEquipmentSlot: JSONObject
+  leftHandEquipmentSlot: JSONObject
+  rightFootEquipmentSlot: JSONObject
+  rightHandEquipmentSlot: JSONObject
+}
+
+input PlayerOrderByInput {
+  bothFeetEquipmentSlot: SortOrder
+  bothHandsEquipmentSlot: SortOrder
+  createdAt: SortOrder
+  headEquipmentSlot: SortOrder
+  id: SortOrder
+  leftFootEquipmentSlot: SortOrder
+  leftHandEquipmentSlot: SortOrder
+  rightFootEquipmentSlot: SortOrder
+  rightHandEquipmentSlot: SortOrder
+  updatedAt: SortOrder
+}
+
+input PlayerUpdateInput {
+  bothFeetEquipmentSlot: JSONObject
+  bothHandsEquipmentSlot: JSONObject
+  headEquipmentSlot: JSONObject
+  leftFootEquipmentSlot: JSONObject
+  leftHandEquipmentSlot: JSONObject
+  rightFootEquipmentSlot: JSONObject
+  rightHandEquipmentSlot: JSONObject
+}
+
+input PlayerWhereInput {
+  bothFeetEquipmentSlot: JsonFilter
+  bothHandsEquipmentSlot: JsonFilter
+  headEquipmentSlot: JsonFilter
+  id: StringFilter
+  leftFootEquipmentSlot: JsonFilter
+  leftHandEquipmentSlot: JsonFilter
+  rightFootEquipmentSlot: JsonFilter
+  rightHandEquipmentSlot: JsonFilter
+}
+
+input PlayerWhereUniqueInput {
+  id: String!
+}
+
+type Query {
+  _cardsMeta(orderBy: [CardOrderByInput!], skip: Float, take: Float, where: CardWhereInput): MetaQueryPayload!
+  _playerCardsMeta(orderBy: [PlayerCardOrderByInput!], skip: Float, take: Float, where: PlayerCardWhereInput): MetaQueryPayload!
+  _playersMeta(orderBy: [PlayerOrderByInput!], skip: Float, take: Float, where: PlayerWhereInput): MetaQueryPayload!
+  _specialAbilitiesMeta(orderBy: [SpecialAbilityOrderByInput!], skip: Float, take: Float, where: SpecialAbilityWhereInput): MetaQueryPayload!
+  _usersMeta(orderBy: [UserOrderByInput!], skip: Float, take: Float, where: UserWhereInput): MetaQueryPayload!
+  card(where: CardWhereUniqueInput!): Card
+  cards(orderBy: [CardOrderByInput!], skip: Float, take: Float, where: CardWhereInput): [Card!]!
+  player(where: PlayerWhereUniqueInput!): Player
+  playerCard(where: PlayerCardWhereUniqueInput!): PlayerCard
+  playerCards(orderBy: [PlayerCardOrderByInput!], skip: Float, take: Float, where: PlayerCardWhereInput): [PlayerCard!]!
+  players(orderBy: [PlayerOrderByInput!], skip: Float, take: Float, where: PlayerWhereInput): [Player!]!
+  specialAbilities(orderBy: [SpecialAbilityOrderByInput!], skip: Float, take: Float, where: SpecialAbilityWhereInput): [SpecialAbility!]!
+  specialAbility(where: SpecialAbilityWhereUniqueInput!): SpecialAbility
+  user(where: UserWhereUniqueInput!): User
+  userInfo: UserInfo!
+  users(orderBy: [UserOrderByInput!], skip: Float, take: Float, where: UserWhereInput): [User!]!
+}
+
+enum QueryMode {
+  Default
+  Insensitive
+}
+
+enum SortOrder {
+  Asc
+  Desc
+}
+
+type SpecialAbility {
+  createdAt: DateTime!
+  id: String!
+  image: String
+  name: String
+  updatedAt: DateTime!
+}
+
+input SpecialAbilityCreateInput {
+  image: String
+  name: String
+}
+
+input SpecialAbilityOrderByInput {
+  createdAt: SortOrder
+  id: SortOrder
+  image: SortOrder
+  name: SortOrder
+  updatedAt: SortOrder
+}
+
+input SpecialAbilityUpdateInput {
+  image: String
+  name: String
+}
+
+input SpecialAbilityWhereInput {
+  id: StringFilter
+  name: StringNullableFilter
+}
+
+input SpecialAbilityWhereUniqueInput {
+  id: String!
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: String
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: String
+  notIn: [String!]
+  startsWith: String
+}
+
+type User {
+  createdAt: DateTime!
+  firstName: String
+  id: String!
+  keycloakid: String
+  lastName: String
+  roles: [String!]!
+  roninwalletaddress: String
+  updatedAt: DateTime!
+  username: String!
+}
+
+input UserCreateInput {
+  firstName: String
+  keycloakid: String
+  lastName: String
+  password: String!
+  roles: [String!]!
+  roninwalletaddress: String
+  username: String!
+}
+
+type UserInfo {
+  accessToken: String
+  roles: [String!]!
+  username: String!
+}
+
+input UserOrderByInput {
+  createdAt: SortOrder
+  firstName: SortOrder
+  id: SortOrder
+  keycloakid: SortOrder
+  lastName: SortOrder
+  password: SortOrder
+  roles: SortOrder
+  roninwalletaddress: SortOrder
+  updatedAt: SortOrder
+  username: SortOrder
+}
+
+input UserUpdateInput {
+  firstName: String
+  keycloakid: String
+  lastName: String
+  password: String
+  roles: [String!]
+  roninwalletaddress: String
+  username: String
+}
+
+input UserWhereInput {
+  firstName: StringNullableFilter
+  id: StringFilter
+  keycloakid: StringNullableFilter
+  lastName: StringNullableFilter
+  roninwalletaddress: StringNullableFilter
+  username: StringFilter
+}
+
+input UserWhereUniqueInput {
+  id: String!
+}

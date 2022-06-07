@@ -1,0 +1,77 @@
+datasource postgres {
+  provider = "postgresql"
+  url      = env("POSTGRESQL_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt          DateTime @default(now())
+  firstName          String?
+  id                 String   @id @default(cuid())
+  keycloakid         String?  @unique
+  lastName           String?
+  password           String
+  roles              String[]
+  roninwalletaddress String?
+  updatedAt          DateTime @updatedAt
+  username           String   @unique
+}
+
+model Card {
+  cardImage             String?
+  cardType              EnumCardCardType?
+  createdAt             DateTime          @default(now())
+  equippableModifier    Json?
+  equippedImage         String?
+  flavorText            String?
+  id                    String            @id @default(cuid())
+  name                  String?
+  nonEquippableModifier Json?
+  rarity                EnumCardRarity?
+  updatedAt             DateTime          @updatedAt
+}
+
+model Player {
+  bothFeetEquipmentSlot  Json?
+  bothHandsEquipmentSlot Json?
+  createdAt              DateTime @default(now())
+  headEquipmentSlot      Json?
+  id                     String   @id @default(cuid())
+  leftFootEquipmentSlot  Json?
+  leftHandEquipmentSlot  Json?
+  rightFootEquipmentSlot Json?
+  rightHandEquipmentSlot Json?
+  updatedAt              DateTime @updatedAt
+}
+
+model SpecialAbility {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  image     String?
+  name      String?
+  updatedAt DateTime @updatedAt
+}
+
+model PlayerCard {
+  cardId               Int?
+  createdAt            DateTime @default(now())
+  dungeonUsesRemaining Int?
+  id                   String   @id @default(cuid())
+  name                 String?
+  updatedAt            DateTime @updatedAt
+}
+
+enum EnumCardCardType {
+  monster
+  hero
+}
+
+enum EnumCardRarity {
+  common
+  uncommon
+  rare
+  legendary
+}
