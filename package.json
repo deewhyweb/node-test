@@ -2,7 +2,7 @@
   "name": "@my-app/server",
   "private": true,
   "scripts": {
-    "start": "nest start",
+    "start": "node test.js",
     "start:watch": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "build": "nest build",
